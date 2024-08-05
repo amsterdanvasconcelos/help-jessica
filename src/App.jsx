@@ -1,12 +1,11 @@
 const App = () => {
   const login = async () => {
     const result = await fetch(
-      'https://booking-room-backend.vercel.app/api/users/register',
+      'https://booking-room-backend.vercel.app/api/users/login',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: 'Jéssica',
           email: 'jessica@email.com',
           password: '123456',
         }),
