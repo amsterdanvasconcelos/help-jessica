@@ -23,14 +23,11 @@ const Home = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    const result = await fetch(
-      'https://booking-room-backend.vercel.app/api/users/login',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      }
-    );
+    const result = await fetch('/api/users/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
 
     console.log(await result.json());
   };
@@ -54,9 +51,7 @@ const Room = () => {
 
   useEffect(() => {
     const fetchRooms = async () => {
-      const response = await fetch(
-        'https://booking-room-backend.vercel.app/api/rooms'
-      );
+      const response = await fetch('/api/rooms');
 
       const data = await response.json();
       setRooms(data);
